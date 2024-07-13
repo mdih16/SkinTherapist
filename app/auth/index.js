@@ -29,7 +29,7 @@ export default function Index() {
       <View className="absolute top-16 left-6">
         <BackButton />
       </View>
-      <SafeAreaView className="absolute bottom-0 w-full min-h-[460px] rounded-t-[30px] bg-white items-center">
+      <SafeAreaView className=" bottom-0 w-full min-h-[460px] bg-white items-center">
         <ScrollView
           className="mt-12 w-3/4 flex"
           keyboardShouldPersistTaps="handled"
@@ -45,6 +45,7 @@ export default function Index() {
               sensitive={false}
               type="email"
             />
+
             <InputField
               onChangeText={setPassword}
               placeHolder="Lösenord"
@@ -62,12 +63,14 @@ export default function Index() {
               </Text>
             </TouchableOpacity>
           </View>
-          <View className="w-full flex flex-col mt-6 items-center">
+          <View className="w-full h-16 flex flex-col mt-6 bg-[#594359] rounded-[30px] items-center">
             <AuthButton label="Logga in" />
             <View className="flex flex-row gap-4 mt-2">
-              <Text className="text-xs font-medium text-[#594359]">
-                Har du inget konto?
-              </Text>
+              <TouchableOpacity>
+                <Text className="text-xs font-medium text-[#000000]">
+                  Har du inget konto?
+                </Text>
+              </TouchableOpacity>
               <TouchableOpacity>
                 <Text className="text-xs font-semibold text-[#4B7980]">
                   Registrera dig
