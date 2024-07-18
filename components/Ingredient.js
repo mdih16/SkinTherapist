@@ -8,13 +8,13 @@ export default Ingredient = ({ ingredientName, ingredientStatus }) => {
 
   const getStatusColor = () => {
     if (ingredientStatus === 0) {
-      return "-[#28A745]";
+      return "#28A745"; // Green
     } else if (ingredientStatus === 1) {
-      return "-[#FFC107]";
+      return "#FFC107"; // Yellow
     } else if (ingredientStatus === 2) {
-      return "-[#DC3545]";
+      return "#DC3545"; // Red
     } else {
-      return "-[#6C757D]";
+      return "#6C757D"; // Gray
     }
   };
 
@@ -36,9 +36,8 @@ export default Ingredient = ({ ingredientName, ingredientStatus }) => {
         <View className="flex flex-row w-full h-8 items-center justify-between mt-5">
           <View className="flex flex-row gap-2 items-center">
             <View
-              className={`h-8 ${isExpanded ? "w-2" : "w-8"} ${
-                "bg" + getStatusColor()
-              } rounded-[10px]`}
+              className={`h-8 ${isExpanded ? "w-2" : "w-8"} rounded-[10px]`}
+              style={{ backgroundColor: getStatusColor() }}
             />
             <Text className="font-roboto_bold text-[#6C757D] text-base">
               {ingredientName}
@@ -54,9 +53,8 @@ export default Ingredient = ({ ingredientName, ingredientStatus }) => {
       {isExpanded && (
         <View>
           <Text
-            className={`font-roboto_bold text-base ${
-              "text" + getStatusColor()
-            } mt-4`}
+            className="font-roboto_bold text-base mt-4"
+            style={{ color: getStatusColor() }}
           >
             {getStatusText()}
           </Text>

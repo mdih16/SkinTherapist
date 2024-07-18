@@ -5,18 +5,14 @@ import IngredientBar from "../../components/IngredientBar";
 import Ingredient from "../../components/Ingredient";
 import BackButton from "../../components/BackButton";
 
-export default home = () => {
-  const [ingredients, setIngredients] = useState([]);
-
+export default Product = ({ productName, brandName, ingredients }) => {
   return (
     <SafeAreaView>
       <ScrollView className="px-6">
-        <BackButton />
-        <Text className="font-roboto_medium text-2xl mt-6">
-          10% Azelaic Acid Booster
-        </Text>
+        <BackButton iconName="close-outline" />
+        <Text className="font-roboto_medium text-2xl mt-6">{productName}</Text>
         <Text className="font-roboto_regular text-xl text-[#6C757D]">
-          från Paula's Choice
+          från {brandName}
         </Text>
 
         <Text className="font-roboto_bold text-2xl text-black mt-12">
@@ -30,47 +26,14 @@ export default home = () => {
         </Text>
         <IngredientBar />
         <View className="mt-6">
-          <Ingredient
-            ingredientName={"Propylene Glycol"}
-            ingredientStatus={0}
-          />
-          <Ingredient ingredientName={"Alcohol Denat"} ingredientStatus={1} />
-          <Ingredient
-            ingredientName={"Beeswax (Cera Alba)"}
-            ingredientStatus={2}
-          />
-          <Ingredient
-            ingredientName={"Propylene Glycol"}
-            ingredientStatus={0}
-          />
-          <Ingredient
-            ingredientName={"Propylene Glycol"}
-            ingredientStatus={0}
-          />
-          <Ingredient
-            ingredientName={"Propylene Glycol"}
-            ingredientStatus={0}
-          />
-          <Ingredient
-            ingredientName={"Propylene Glycol"}
-            ingredientStatus={0}
-          />
-          <Ingredient
-            ingredientName={"Propylene Glycol"}
-            ingredientStatus={0}
-          />
-          <Ingredient
-            ingredientName={"Propylene Glycol"}
-            ingredientStatus={0}
-          />
-          <Ingredient
-            ingredientName={"Propylene Glycol"}
-            ingredientStatus={0}
-          />
-          <Ingredient
-            ingredientName={"Propylene Glycol"}
-            ingredientStatus={0}
-          />
+          {ingredients.map((ingredient) => {
+            return (
+              <Ingredient
+                ingredientName={ingredient.ingredientname}
+                ingredientStatus={ingredient?.ingredientstatus}
+              />
+            );
+          })}
         </View>
       </ScrollView>
     </SafeAreaView>
