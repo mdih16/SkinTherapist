@@ -4,7 +4,6 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  SafeAreaView,
 } from "react-native";
 import { useState, useRef } from "react";
 import { ResizeMode, Video } from "expo-av";
@@ -29,20 +28,21 @@ export default function Index() {
       <View className="absolute top-16 left-6">
         <BackButton />
       </View>
-      <SafeAreaView className=" bottom-0 w-full min-h-[460px] bg-white items-center">
+      <View className="absolute bottom-0 w-full h-[65%] bg-white items-center rounded-t-[40px]">
         <ScrollView
-          className="mt-12 w-3/4 flex"
+          className="mt-12 w-full px-8 flex"
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ alignItems: "center" }}
         >
-          <Text className="mb-6 font-bold text-3xl color-[#594359]">
+          <Text className="mb-6 font-roboto_bold text-3xl color-[#594359]">
             Välkommen tillbaka
           </Text>
           <View className="flex flex-col w-full gap-4">
             <InputField
               onChangeText={setEmail}
-              placeHolder="Telefonnummer eller e-post"
+              placeHolder="E-post"
               sensitive={false}
+              cornerRadius={30}
               type="email"
             />
 
@@ -50,51 +50,40 @@ export default function Index() {
               onChangeText={setPassword}
               placeHolder="Lösenord"
               sensitive={true}
+              cornerRadius={30}
               type="current-password"
             />
           </View>
-          <View className="w-full flex flex-row mt-2 px-4 justify-between">
-            <Text className="font-medium text-xs text-[#594359]">
-              Kom ihåg mig
+          <TouchableOpacity className="w-full mt-2 mr-6">
+            <Text className="font-roboto_medium text-right text-xs text-black">
+              Glömt lösenord?
             </Text>
-            <TouchableOpacity>
-              <Text className="font-medium text-xs text-[#594359]">
-                Glömt lösenord?
+          </TouchableOpacity>
+          <View className="flex flex-col w-full items-center mt-14">
+            <AuthButton
+              label="Logga in"
+              backgroundColor="#594359"
+              textColor="#ffffff"
+            />
+            <View className="flex flex-row gap-1 mt-2">
+              <Text className="text-xs font-roboto_medium text-black">
+                Har du inget konto?
               </Text>
-            </TouchableOpacity>
-          </View>
-          <View className="w-full h-16 flex flex-col mt-6 bg-[#594359] rounded-[30px] items-center">
-            <AuthButton label="Logga in" />
-            <View className="flex flex-row gap-4 mt-2">
               <TouchableOpacity>
-                <Text className="text-xs font-medium text-[#000000]">
-                  Har du inget konto?
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Text className="text-xs font-semibold text-[#4B7980]">
+                <Text className="text-xs font-roboto_bold text-[#0056B3]">
                   Registrera dig
                 </Text>
               </TouchableOpacity>
             </View>
           </View>
         </ScrollView>
-        <View className="flex flex-row gap-2 mb-4">
-          <TouchableOpacity>
-            <Text className="text-[8px] text-[#4B7980]">Användarvillkor</Text>
-          </TouchableOpacity>
-          <Text className="text-[8px] text-[#4B7980]">|</Text>
-          <TouchableOpacity>
-            <Text className="text-[8px] text-[#4B7980]">Integritetspolicy</Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   video: {
-    height: 280,
+    height: "40%",
   },
 });

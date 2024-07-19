@@ -2,14 +2,23 @@ import { TextInput, Pressable, TouchableOpacity, Platform } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useState, useRef } from "react";
 
-const InputField = ({ placeHolder, type, sensitive, onChangeText }) => {
+const InputField = ({
+  placeHolder,
+  type,
+  sensitive,
+  cornerRadius,
+  onChangeText,
+}) => {
   const [text, setText] = useState("");
   const [isTextHidden, setIsTextHidden] = useState(sensitive);
+  const [isFocused, setIsFocused] = useState(false);
   const textInputRef = useRef(null);
 
   return (
     <Pressable
-      className="w-full h-16 bg-white border-solid border-2 rounded-[30px] flex flex-row items-center"
+      className={`flex flex-row items-center w-full h-16 bg-white rounded-[${cornerRadius}px] border border-solid ${
+        isFocused ? "border-2 border-[#594359]" : ""
+      }`}
       onPress={() => {
         textInputRef.current.focus();
       }}
@@ -17,7 +26,7 @@ const InputField = ({ placeHolder, type, sensitive, onChangeText }) => {
       <TextInput
         value={text}
         placeholder={placeHolder}
-        placeholderTextColor={"#BFA4BF"}
+        placeholderTextColor={"#6C757D"}
         importantForAutofill="no"
         autoCorrect={false}
         spellCheck={false}
@@ -32,14 +41,16 @@ const InputField = ({ placeHolder, type, sensitive, onChangeText }) => {
             : "default"
         }
         maxLength={256}
-        className={`flex-1 px-6 text-[#000000] text-xl font-regular text-base ${
-          sensitive ? "pr-12" : ""
-        }`}
+        className={`flex-1 px-6 text-base text-black font-roboto_regular ${
+          !text ? "font-roboto_light_italic" : ""
+        }  ${sensitive ? "pr-12" : ""}`}
         onChangeText={(input) => {
           setText(input);
           onChangeText(input);
         }}
         ref={textInputRef}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
       />
       {sensitive && (
         <TouchableOpacity
