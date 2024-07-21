@@ -56,7 +56,7 @@ export default Scanner = () => {
         <View className="absolute top-16 left-6">
           <BackButton backgroundColor="bg-white/40" />
         </View>
-        {productData && (
+        {!productData && (
           <View className="absolute bottom-8 flex items-center w-full h-24">
             <ProductScannerCard
               brandName="Paulas Choice"

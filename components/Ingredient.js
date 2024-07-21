@@ -34,20 +34,26 @@ export default Ingredient = ({ ingredientName, ingredientStatus }) => {
     <View>
       <TouchableWithoutFeedback onPress={() => setIsExpanded(!isExpanded)}>
         <View className="flex flex-row w-full h-8 items-center justify-between mt-5">
-          <View className="flex flex-row gap-2 items-center">
+          <View className="flex flex-row gap-2 items-center flex-1 pr-6">
             <View
               className={`h-8 ${isExpanded ? "w-2" : "w-8"} rounded-[10px]`}
               style={{ backgroundColor: getStatusColor() }}
             />
-            <Text className="font-roboto_bold text-[#6C757D] text-base">
+            <Text
+              numberOfLines={1}
+              ellipsizeMode="tail"
+              className="font-roboto_bold text-[#6C757D] text-base"
+            >
               {ingredientName}
             </Text>
           </View>
-          <MaterialIcons
-            name={isExpanded ? "keyboard-arrow-up" : "keyboard-arrow-down"}
-            size={24}
-            color="black"
-          />
+          <View className="flex items-center justify-center h-8 w-8">
+            <MaterialIcons
+              name={isExpanded ? "keyboard-arrow-up" : "keyboard-arrow-down"}
+              size={24}
+              color="black"
+            />
+          </View>
         </View>
       </TouchableWithoutFeedback>
       {isExpanded && (

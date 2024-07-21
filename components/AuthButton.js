@@ -8,7 +8,11 @@ const AuthButton = ({ label, backgroundColor, textColor, border, onPress }) => {
         border ? "border" : ""
       }`}
     >
-      <Text className={`text-[${textColor}] font-roboto_bold text-xl`}>
+      <Text
+        className={`${
+          !textColor ? "text-white" : "text-[" + textColor + "]"
+        } font-roboto_bold text-xl`}
+      >
         {label}
       </Text>
     </TouchableOpacity>

@@ -27,11 +27,7 @@ export default welcome = () => {
             textColor={"#000000"}
             border={true}
           />
-          <AuthButton
-            label={"Skapa ett konto"}
-            backgroundColor={"#594359"}
-            textColor={"#ffffff"}
-          />
+          <AuthButton label={"Skapa ett konto"} backgroundColor={"#594359"} />
         </View>
         <Text className="text-xs text-[#6C757D] text-center mt-4 px-3">
           Genom att fortsätta godkänner du våra{" "}

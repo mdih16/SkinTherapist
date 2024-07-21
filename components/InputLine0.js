@@ -1,20 +1,21 @@
-import { TextInput, Pressable, TouchableOpacity, Platform } from "react-native";
+import { TextInput, Pressable, Platform } from "react-native";
 import { useState, useRef } from "react";
 
-const InputField = ({ placeHolder, type, sensitive, onChangeText }) => {
-  const [text, setText] = useState("");
+const InputField = ({ placeHolder, type, sensitive, text, onChangeText }) => {
   const [isTextHidden, setIsTextHidden] = useState(sensitive);
   const textInputRef = useRef(null);
 
   return (
     <Pressable
-      className="w-[310px] h-16 bg-[#ffffff] border-solid border-2 border-x-transparent border-t-transparent flex flex-row items-center"
+      className="flex flex-row w-full border-solid border-b-2"
       onPress={() => {
         textInputRef.current.focus();
       }}
     >
       <TextInput
-        className="text-xl font-regular"
+        className={`${
+          text === "" ? "font-roboto_light_italic" : "font-roboto_regular"
+        } text-xl text-black`}
         value={text}
         placeholder={placeHolder}
         placeholderTextColor={"#6C757D"}
@@ -32,7 +33,6 @@ const InputField = ({ placeHolder, type, sensitive, onChangeText }) => {
             : "default"
         }
         onChangeText={(input) => {
-          setText(input);
           onChangeText(input);
         }}
         ref={textInputRef}

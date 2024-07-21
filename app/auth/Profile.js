@@ -86,11 +86,7 @@ export default Profile = () => {
             type="current-password"
           />
           <View className="absolute bottom-6 w-full mx-6">
-            <AuthButton
-              label="Ändra lösenord"
-              backgroundColor="#594359"
-              textColor="#ffffff"
-            />
+            <AuthButton label="Ändra lösenord" backgroundColor="#594359" />
           </View>
         </KeyboardAvoidingView>
       </Modal>

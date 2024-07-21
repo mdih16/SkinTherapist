@@ -60,11 +60,7 @@ export default function Index() {
             </Text>
           </TouchableOpacity>
           <View className="flex flex-col w-full items-center mt-14">
-            <AuthButton
-              label="Logga in"
-              backgroundColor="#594359"
-              textColor="#ffffff"
-            />
+            <AuthButton label="Logga in" backgroundColor="#594359" />
             <View className="flex flex-row gap-1 mt-2">
               <Text className="text-xs font-roboto_medium text-black">
                 Har du inget konto?
