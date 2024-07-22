@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 
 export default CategoryHeader = ({ categoryText, isFocused }) => {
   return (
-    <View className="flex items-center justify-center h-12">
+    <View className="flex items-center justify-center">
       <Text
         className={`font-roboto_bold text-base ${
           isFocused

@@ -2,9 +2,9 @@ import { View, Text } from "react-native";
 
 export default ProductCard = ({ productName, productBrand, productFit }) => {
   return (
-    <View className="flex flex-row w-full h-16 gap-6">
-      <View className="w-16 h-16 bg-[#F2EEF2] rounded-xl" />
-      <View className="flex-1 flex flex-col overflow-x-scroll">
+    <View className="flex flex-row w-full h-20 gap-6">
+      <View className="w-20 h-20 bg-[#F2EEF2]" />
+      <View className="flex-1 flex-shrink flex flex-col">
         <Text
           numberOfLines={1}
           ellipsizeMode="tail"
