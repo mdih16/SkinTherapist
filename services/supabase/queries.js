@@ -1,5 +1,14 @@
 import supabase from "./supabaseClient";
 
+// Format the data to include the brandname at the top level
+const formatProductData = (productData) => {
+  return productData.map((product) => ({
+    productname: product.productname,
+    product_id: product.product_id,
+    brandname: product.brand.brandname,
+  }));
+};
+
 export const fetchIngredientsByProductId = async (productId) => {
   const { data, error } = await supabase
     .from("productingredient")
@@ -36,14 +45,7 @@ export const fetchProducts = async (pageSize = 7, lastProductId = null) => {
     return [];
   }
 
-  // Format the data to include the brandname at the top level
-  const formattedData = data.map((product) => ({
-    productname: product.productname,
-    product_id: product.product_id,
-    brandname: product.brand.brandname,
-  }));
-
-  return formattedData;
+  return formatProductData(data);
 };
 
 export const searchProducts = async (searchText) => {
@@ -58,12 +60,19 @@ export const searchProducts = async (searchText) => {
     return [];
   }
 
-  // Format the data to include the brandname at the top level
-  const formattedData = searchResults.map((product) => ({
-    productname: product.productname,
-    product_id: product.product_id,
-    brandname: product.brand.brandname,
-  }));
+  return formatProductData(searchResults);
+};
 
-  return formattedData;
+export const scanProduct = async (ean) => {
+  const { data: productData, error: scanError } = await supabase
+    .from("product")
+    .select("productname, product_id, brand:brand_id(brandname)")
+    .eq("ean", ean);
+
+  if (scanError) {
+    console.error("Error fetching product: ", scanError);
+    return [];
+  }
+
+  return formatProductData(productData);
 };
