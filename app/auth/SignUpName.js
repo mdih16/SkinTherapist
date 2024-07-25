@@ -24,10 +24,10 @@ export default SignUpName = () => {
           />
         </View>
         <View className="flex flex-row gap-1 mt-4 mb-12">
-          <Text className="font-regular text-xs color-[#6C757D]">
+          <Text className="font-regular text-2xs color-[#6C757D]">
             Förlora inte åtkomsten till ditt konto.
           </Text>
-          <Text className="text-xs font-bold text-[#594359]">
+          <Text className="text-2xs font-bold text-[#594359]">
             Bekräfta din e-mail!
           </Text>
         </View>

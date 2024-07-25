@@ -29,7 +29,7 @@ export default welcome = () => {
           />
           <AuthButton label={"Skapa ett konto"} backgroundColor={"#594359"} />
         </View>
-        <Text className="text-xs text-[#6C757D] text-center mt-4 px-3">
+        <Text className="text-2xs text-[#6C757D] text-center mt-4 px-3">
           Genom att fortsätta godkänner du våra{" "}
           <Text className="font-medium text-black">Användarvillkor</Text> och
           bekräftar att du har läst vår{" "}

@@ -48,7 +48,7 @@ export default function Sign() {
           </View>
 
           <View className="mt-1 ml-6 ">
-            <Text className="font-regular text-xs color-[#6C757D]">
+            <Text className="font-regular text-2xs color-[#6C757D]">
               Vi kommer att skicka en kod för att verifiera att du verkligen är
               du
             </Text>
