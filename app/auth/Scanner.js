@@ -5,8 +5,14 @@ import { useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import BackButton from "../../components/BackButton";
 import { scanProduct } from "../../services/supabase/queries";
+import Alert from "../../components/Alert";
 
-const ProductScannerCard = ({ brandName, productName, product_id }) => {
+const ProductScannerCard = ({
+  brandName,
+  productName,
+  product_id,
+  onClose,
+}) => {
   return (
     <Link
       href={{
@@ -43,15 +49,18 @@ const ProductScannerCard = ({ brandName, productName, product_id }) => {
   );
 };
 
-const ProductNotFound = () => {
+const ProductNotFound = ({ showAlert }) => {
   return (
-    <TouchableOpacity className="flex flex-row w-[90%] h-full items-center justify-between px-6 bg-white/70 rounded-[20px] ">
-      <View className="flex-1 flex flex-col">
-        <Text className="font-roboto_regular text-xl text-[#6C757D]">
-          Produkten är för närvarande inte tillgänglig.
+    <View className=" flex-1 w-[90%] h-full px-8 bg-white/70 rounded-[20px] ">
+      <Text className="font-roboto_bold text-xl pt-1 text-[#6C757D]">
+        Produkten är för närvarande inte tillgänglig.
+      </Text>
+      <TouchableOpacity onPress={showAlert}>
+        <Text className="font-roboto_bold text-base text-[#594359]">
+          Meddela mig när produkten finns!
         </Text>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -59,7 +68,15 @@ export default Scanner = () => {
   const [productData, setProductData] = useState(null);
   const [productEan, setProductEan] = useState(null);
   const [permission, requestPermission] = useCameraPermissions();
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
 
+  const showAlert = () => {
+    setIsAlertVisible(true);
+  };
+
+  const hideAlert = () => {
+    setIsAlertVisible(false);
+  };
   const onBarcodeScanned = async (scanningResult) => {
     const ean = scanningResult.data;
     if (ean !== productEan) {
@@ -111,8 +128,11 @@ export default Scanner = () => {
             product_id={productData.product_id}
           />
         )}
-        {!productData && productEan && <ProductNotFound />}
+        {!productData && productEan && (
+          <ProductNotFound showAlert={showAlert} />
+        )}
       </View>
+      <Alert isVisible={isAlertVisible} onClose={hideAlert} />
     </View>
   );
 };

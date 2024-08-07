@@ -9,6 +9,7 @@ import {
   Modal,
   TouchableOpacity,
   ActivityIndicator,
+  StyleSheet,
 } from "react-native";
 import { fetchProducts, searchProducts } from "../../services/supabase/queries";
 import React, { useState, useEffect, useRef } from "react";
@@ -19,6 +20,7 @@ import { Ionicons } from "@expo/vector-icons";
 import SearchBar from "../../components/SearchBar";
 import CategoryHeader from "../../components/CategoryHeader";
 import ProductCard from "../../components/ProductCard";
+import Alert from "../../components/Alert";
 
 const CATEGORIES = ["Allt", "Ansikte"];
 
@@ -27,6 +29,15 @@ const SearchView = ({ placeHolder, onClose }) => {
   const [searching, setSearching] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const inputRef = useRef(null);
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
+
+  const showAlert = () => {
+    setIsAlertVisible(true);
+  };
+
+  const hideAlert = () => {
+    setIsAlertVisible(false);
+  };
 
   // Focus the text input on mount, uses blur followed by setTimeout to fix bug
   useEffect(() => {
@@ -80,7 +91,7 @@ const SearchView = ({ placeHolder, onClose }) => {
             searchText === ""
               ? "font-roboto_light_italic"
               : "font-roboto_regular"
-          } flex-1 h-16 text-base text-black bg-[#F2EEF2]`}
+          } flex-1 h-16 text-base text-black bg-[#F2EEF2] `}
           ref={inputRef}
         />
         <Pressable
@@ -94,23 +105,26 @@ const SearchView = ({ placeHolder, onClose }) => {
           />
         </Pressable>
       </View>
-      {searchText && !searching && searchResults.length === 0 && (
-        <View className="w-full h-full px-6 pt-6">
-          <Text className="font-roboto_bold text-xl text-black mb-4">
-            0 resultat för {' "' + searchText + '"'}
-          </Text>
-          <Text className="font-roboto_regular text-base text-[#6C757D] mb-2">
-            Kontrollera stavning eller testa att söka efter ett annat ord. Finns
-            inte den produkt du söker efter?
-          </Text>
-          <TouchableOpacity>
-            <Text className="font-roboto_bold text-base text-[#594359]">
-              Klicka här så skickar vi ett e-mail till dig när den är
-              tillgänglig.
+      <View className="flex-1">
+        {searchText && !searching && searchResults.length === 0 && (
+          <View className="w-full h-full px-6 pt-6">
+            <Text className="font-roboto_bold text-xl text-black mb-4">
+              0 resultat för {' "' + searchText + '"'}
             </Text>
-          </TouchableOpacity>
-        </View>
-      )}
+            <Text className="font-roboto_regular text-base text-[#6C757D] mb-2">
+              Kontrollera stavning eller testa att söka efter ett annat ord.
+              Finns inte den produkt du söker efter?
+            </Text>
+            <TouchableOpacity onPress={showAlert}>
+              <Text className="font-roboto_bold text-base text-[#594359]">
+                Klicka här så meddelar vi dig när den är tillgänglig.
+              </Text>
+            </TouchableOpacity>
+          </View>
+        )}
+        <Alert isVisible={isAlertVisible} onClose={hideAlert} />
+      </View>
+
       {searching && (
         <View className="flex w-full items-center justify-center mt-12">
           <ActivityIndicator size="large" color="#000000" />

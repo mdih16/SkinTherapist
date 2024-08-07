@@ -12,9 +12,7 @@ export default SignUpName = () => {
     <SafeAreaView>
       <View className="w-full h-full px-6">
         <BackButton />
-        <Text className="font-roboto_medium text-4xl color-black mt-6">
-          Vad heter du?
-        </Text>
+
         <View className="mt-8">
           <InputLine0
             text={firstName}
@@ -23,14 +21,7 @@ export default SignUpName = () => {
             placeHolder="Förnamn"
           />
         </View>
-        <View className="flex flex-row gap-1 mt-4 mb-12">
-          <Text className="font-regular text-2xs color-[#6C757D]">
-            Förlora inte åtkomsten till ditt konto.
-          </Text>
-          <Text className="text-2xs font-bold text-[#594359]">
-            Bekräfta din e-mail!
-          </Text>
-        </View>
+
         <AuthButton
           label="Nästa"
           backgroundColor="#594359"
