@@ -4,9 +4,12 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
+  Alert,
 } from "react-native";
-import { useState, useRef } from "react";
+import { useState } from "react";
+import { router } from "expo-router";
 import { ResizeMode, Video } from "expo-av";
+import { signIn } from "../../services/supabase/auth";
 import InputField from "../../components/InputField";
 import AuthButton from "../../components/AuthButton";
 import BackButton from "../../components/BackButton";
@@ -26,9 +29,9 @@ export default function Index() {
         isMuted
       />
       <View className="absolute top-16 left-6">
-        <BackButton />
+        <BackButton onPress={() => router.back()} />
       </View>
-      <View className="absolute bottom-0 w-full h-[65%] bg-white items-center rounded-t-[40px]">
+      <View className="absolute bottom-0 w-full h-[55%] bg-white items-center rounded-t-[40px]">
         <ScrollView
           className="mt-12 w-full px-8 flex"
           keyboardShouldPersistTaps="handled"
@@ -60,12 +63,22 @@ export default function Index() {
             </Text>
           </TouchableOpacity>
           <View className="flex flex-col w-full items-center mt-14">
-            <AuthButton label="Logga in" backgroundColor="#594359" />
+            <AuthButton
+              label="Logga in"
+              backgroundColor="#594359"
+              onPress={async () => {
+                try {
+                  await signIn(email, password);
+                } catch (e) {
+                  Alert.alert(e.message);
+                }
+              }}
+            />
             <View className="flex flex-row gap-1 mt-2">
               <Text className="text-xs font-roboto_medium text-black">
                 Har du inget konto?
               </Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => router.push("/auth/Signup")}>
                 <Text className="text-xs font-roboto_bold text-[#0056B3]">
                   Registrera dig
                 </Text>
@@ -80,6 +93,6 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   video: {
-    height: "40%",
+    height: "50%",
   },
 });

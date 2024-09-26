@@ -16,7 +16,7 @@ const SKIN_CONDITIONS = [
 const SkinConditionButton = ({ active, label }) => {
   return (
     <View
-      className={`flex w-full h-9 items-center justify-center rounded-[30px] ${
+      className={`flex w-full h-10 items-center justify-center rounded-[30px] ${
         active ? "bg-[#594359]" : "bg-white border-2 border-[#6C757D]"
       }`}
     >
@@ -53,7 +53,7 @@ export default SkinConditionPicker = ({
               });
             }}
             key={index}
-            className="w-[30%]"
+            className="w-[31%]"
           >
             <SkinConditionButton
               label={skinCondition}

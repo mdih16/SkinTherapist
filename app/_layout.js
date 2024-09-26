@@ -1,6 +1,5 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import * as SplashScreen from "expo-splash-screen";
-import * as NavigationBar from "expo-navigation-bar";
 import { useFonts } from "expo-font";
 import {
   Roboto_300Light_Italic,
@@ -11,7 +10,8 @@ import {
 import { Sofia_400Regular } from "@expo-google-fonts/sofia";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import { Slot } from "expo-router";
+import { Stack } from "expo-router";
+import AuthProvider from "../services/supabase/AuthProvider";
 import "../global.css";
 
 SplashScreen.preventAutoHideAsync();
@@ -31,15 +31,20 @@ export default function RootLayout() {
     }
   }, [loaded, error]);
 
-  useEffect(() => {
-    // Set navigation bar color on Android
-    NavigationBar.setBackgroundColorAsync("#ffffff");
-    NavigationBar.setButtonStyleAsync("dark");
-  }, []);
+  if (!loaded && !error) {
+    return null;
+  }
+
   return (
     <SafeAreaProvider>
       <StatusBar style="dark" translucent />
-      <Slot />
+      <AuthProvider>
+        <Stack options={{ headerShown: false }}>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="auth" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        </Stack>
+      </AuthProvider>
     </SafeAreaProvider>
   );
 }

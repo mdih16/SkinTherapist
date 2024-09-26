@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
+import { signOut } from "../../services/supabase/auth";
+import { useAuth } from "../../services/supabase/AuthProvider";
 import SkinConditionPicker from "../../components/SkinConditionPicker";
 import BackButton from "../../components/BackButton";
 import InputField from "../../components/InputField";
@@ -39,8 +41,10 @@ const PersonalDetailInput = ({ label, value, onChange }) => {
 };
 
 export default Profile = () => {
-  const [name, setName] = useState("Emma");
-  const [email, setEmail] = useState("emma2409@gmail.com");
+  const { session, user } = useAuth();
+
+  const [name, setName] = useState(user?.first_name);
+  const [email, setEmail] = useState(session?.user.email);
   const [newPassword, setNewPassword] = useState("");
   const [confirmedNewPassword, setConfirmedNewPassword] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
@@ -55,14 +59,14 @@ export default Profile = () => {
           setModalVisible(!modalVisible);
         }}
       >
-        <KeyboardAvoidingView className="flex flex-col w-full h-full gap-y-6 px-6 bg-white">
-          <View className="absolute left-6">
+        <KeyboardAvoidingView className="flex flex-col w-full h-full gap-y-6 px-6 pt-6 bg-white">
+          <View className="absolute top-6 left-6">
             <BackButton
               onPress={() => setModalVisible(!modalVisible)}
               iconName="close-outline"
             />
           </View>
-          <View className="flex flex-row w-full h-12 items-center justify-center mb-12">
+          <View className="flex flex-row w-full h-12 items-center justify-center mb-4">
             <Text className="font-roboto_medium text-xl text-black">
               Ändra lösenord
             </Text>
@@ -90,9 +94,9 @@ export default Profile = () => {
           </View>
         </KeyboardAvoidingView>
       </Modal>
-      <ScrollView className="px-6 bg-white">
+      <ScrollView className="h-full px-6 bg-white">
         <View className="flex flex-row justify-between items-center w-full h-12">
-          <BackButton />
+          <View className="w-12 h-12 bg-white" />
           <Text className="font-roboto_medium text-xl font-black">
             Min profil
           </Text>
@@ -135,7 +139,12 @@ export default Profile = () => {
           />
           <LineBreak />
           <LineBreak />
-          <TouchableOpacity className="mb-2">
+          <TouchableOpacity
+            className="mb-2"
+            onPress={async () => {
+              await signOut();
+            }}
+          >
             <Text className="font-roboto_medium text-xl text-black text-center">
               Logga ut
             </Text>

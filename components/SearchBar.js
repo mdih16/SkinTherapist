@@ -7,10 +7,7 @@ export default SearchBar = ({ placeHolder, disabled, onPress }) => {
   const searchRef = useRef(null);
 
   return (
-    <Pressable
-      onPress={() => onPress()}
-      className="w-full h-12 flex flex-row items-center border rounded-[30px]"
-    >
+    <Pressable onPress={() => onPress()} className="w-full h-12 flex flex-row items-center border rounded-[30px]">
       <Ionicons
         className="pl-3"
         name="search-outline"

@@ -10,7 +10,7 @@ const AuthButton = ({ label, backgroundColor, textColor, border, onPress }) => {
     >
       <Text
         className={`${
-          !textColor ? "text-white" : "text-[" + textColor + "]"
+          !textColor ? "text-white" : `text-[${textColor}]`
         } font-roboto_bold text-xl`}
       >
         {label}

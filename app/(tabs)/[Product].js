@@ -2,17 +2,19 @@ import { View, Text, ScrollView, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams } from "expo-router";
 import { useState, useEffect } from "react";
+import { router } from "expo-router";
 import { fetchIngredientsByProductId } from "../../services/supabase/queries";
 import Ingredient from "../../components/Ingredient";
 import BackButton from "../../components/BackButton";
 
 const IngredientBar = (colorRatio) => {
+  console.log(colorRatio.colorRatio);
   return (
     <View className="flex flex-row w-full h-2 bg-[#6C757D] rounded-[30px]">
-      <View className={`h-full w-[${colorRatio.G}%] bg-[#28A745]`} />
-      <View className={`h-full w-[${colorRatio.Y}%] bg-[#FFC107]`} />
-      <View className={`h-full w-[${colorRatio.R}%] bg-[#DC3545]`} />
-      <View className={`h-full w-[${colorRatio.U}%] bg-[#6C757D]`} />
+      <View className={`h-full w-[${colorRatio.colorRatio.G}%] bg-[#28A745]`} />
+      <View className={`h-full w-[${colorRatio.colorRatio.Y}%] bg-[#FFC107]`} />
+      <View className={`h-full w-[${colorRatio.colorRatio.R}%] bg-[#DC3545]`} />
+      <View className={`h-full w-[${colorRatio.colorRatio.U}%] bg-[#6C757D]`} />
     </View>
   );
 };
@@ -77,7 +79,12 @@ export default function Product() {
   return (
     <SafeAreaView>
       <ScrollView className="px-6">
-        <BackButton iconName="close-outline" />
+        <BackButton
+          iconName="close-outline"
+          onPress={() => {
+            router.back();
+          }}
+        />
         <Text className="font-roboto_medium text-2xl mt-6">{productname}</Text>
         <Text className="font-roboto_regular text-xl text-[#6C757D]">
           från {brandname}
@@ -99,7 +106,7 @@ export default function Product() {
         )}
         {!loading && ingredients && (
           <View>
-            <IngredientBar colorRatio={generateRatio} />
+            <IngredientBar colorRatio={generateRatio()} />
             <View className="my-6">
               {ingredients.map((ingredient) => (
                 <Ingredient

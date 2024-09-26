@@ -1,10 +1,24 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import { router } from "expo-router";
 
-export default ProductCard = ({ productName, productBrand, productFit }) => {
+export default ProductCard = ({
+  productName,
+  productBrand,
+  productFit,
+  productId,
+}) => {
   return (
-    <View className="flex flex-row w-full h-20 gap-6">
+    <TouchableOpacity
+      onPress={() => {
+        router.navigate({
+          pathname: "/" + productId,
+          params: { productname: productName, brandname: productBrand },
+        });
+      }}
+      className="flex flex-row w-full h-20 gap-6"
+    >
       <View className="w-20 h-20 bg-[#F2EEF2]" />
-      <View className="flex-1 flex-shrink flex flex-col">
+      <View className="flex-1 flex flex-col">
         <Text
           numberOfLines={1}
           ellipsizeMode="tail"
@@ -23,6 +37,6 @@ export default ProductCard = ({ productName, productBrand, productFit }) => {
           Passar för alla hudtyper
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };

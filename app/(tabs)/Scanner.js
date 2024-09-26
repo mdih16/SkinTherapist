@@ -10,7 +10,7 @@ const ProductScannerCard = ({ brandName, productName, product_id }) => {
   return (
     <Link
       href={{
-        pathname: "/auth/" + product_id,
+        pathname: String(product_id),
         params: {
           brandname: brandName,
           productname: productName,
