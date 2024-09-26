@@ -15,12 +15,14 @@ import { useState, useEffect, useRef } from "react";
 import { router } from "expo-router";
 import React from "react";
 import ProductCard from "../../components/ProductCard";
+import Alert from "../../components/Alert";
 
 export default Search = ({ placeHolder }) => {
   const [searchText, setSearchText] = useState("");
   const [searching, setSearching] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const inputRef = useRef(null);
+  const [isAlertVisible, setIsAlertVisible] = useState(false);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -95,12 +97,16 @@ export default Search = ({ placeHolder }) => {
               Kontrollera stavning eller testa att söka efter ett annat ord.
               Finns inte den produkt du söker efter?
             </Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => setIsAlertVisible(true)}>
               <Text className="font-roboto_bold text-base text-[#594359]">
                 Klicka här så skickar vi ett e-mail till dig när den är
                 tillgänglig.
               </Text>
             </TouchableOpacity>
+            <Alert
+              isVisible={isAlertVisible}
+              onClose={() => setIsAlertVisible(false)}
+            />
           </View>
         )}
         {searching && (

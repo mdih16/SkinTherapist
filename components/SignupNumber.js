@@ -48,14 +48,14 @@ export default function Sign() {
           </View>
 
           <View className="mt-1 ml-6 ">
-            <Text className="font-regular text-xs color-[#6C757D]">
+            <Text className="font-regular text-2xs color-[#6C757D]">
               Vi kommer att skicka en kod för att verifiera att du verkligen är
               du
             </Text>
           </View>
         </View>
       </SafeAreaView>
-      <View className="w-3/4 h-16 mt-20 bg-[#594359] rounded-[30px] ml-12 mt-[350px]">
+      <View className="w-3/4 h-16 bg-[#594359] rounded-[30px] ml-12 mt-[350px]">
         <AuthButton label="Nästa" />
       </View>
     </View>

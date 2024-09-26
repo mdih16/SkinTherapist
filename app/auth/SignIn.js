@@ -37,7 +37,7 @@ export default function Index() {
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ alignItems: "center" }}
         >
-          <Text className="mb-6 font-roboto_bold text-3xl color-[#594359]">
+          <Text className="mb-6 font-roboto_bold text-4xl color-[#594359]">
             Välkommen tillbaka
           </Text>
           <View className="flex flex-col w-full gap-4">

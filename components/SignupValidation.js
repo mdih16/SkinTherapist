@@ -31,12 +31,14 @@ export default function Sign() {
             </Text>
           </View>
           <View className="flex flex-row gap-1 mt-2 ml-6">
-            <Text className="font-regular text-xs color-[#6C757D]">
+            <Text className="font-regular text-2xs color-[#6C757D]">
               Skickat till +46 123456789.
             </Text>
 
             <TouchableOpacity>
-              <Text className="text-xs font-bold text-[#594359]">Redigera</Text>
+              <Text className="text-2xs font-bold text-[#594359]">
+                Redigera
+              </Text>
             </TouchableOpacity>
           </View>
 
@@ -61,19 +63,19 @@ export default function Sign() {
             </View>
           </View>
           <View className="flex flex-row gap-1 mt-4 ml-6 ">
-            <Text className="font-regular text-xs color-[#6C757D]">
+            <Text className="font-regular text-2 color-[#6C757D]">
               Fick du ingenting? Inga problem!
             </Text>
 
             <TouchableOpacity>
-              <Text className="text-xs font-bold text-[#594359]">
+              <Text className="text-2xs font-bold text-[#594359]">
                 Skicka igen!
               </Text>
             </TouchableOpacity>
           </View>
         </View>
       </SafeAreaView>
-      <View className="w-3/4 h-16 mt-20 bg-[#594359] rounded-[30px] ml-12 mt-[350px]">
+      <View className="w-3/4 h-16 bg-[#594359] rounded-[30px] ml-12 mt-[350px]">
         <AuthButton label="Nästa" />
       </View>
     </View>
