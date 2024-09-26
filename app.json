@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "PuriFine",
-    "slug": "PuriFine",
+    "name": "SkinTherapist",
+    "slug": "SkinTherapist",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
