@@ -1,52 +1,49 @@
-# Welcome to your Expo app 👋
+# 🌿 Welcome to SkinTherapist 🌿
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Hello, lovely team! 👋 Welcome to the cozy corner of our SkinTherapist app. Grab a cup of tea, settle in, and let's chat about this exciting project we're nurturing together.
 
-## Get started
+## 🌟 What's SkinTherapist All About?
 
-1. Install dependencies
+SkinTherapist is our little magic wand for skincare enthusiasts. It's an app that lets users scan skincare products and receive personalized information based on their unique skin conditions. Think of it as a knowledgeable friend who's always in your pocket, ready to give you the best skincare advice!
 
-   ```bash
-   npm install
-   ```
+## 🌼 Key Features
 
-2. Start the app
+- **Product Scanning**: Just like magic, but with science! 📸
+- **Personalized Recommendations**: Because every skin tells a different story 💖
+- **Skin Condition Tracking**: Helping users on their journey to glowing skin 🌟
+- **Ingredient Analysis**: Making sense of those long, complicated names 🧪
 
-   ```bash
-    npx expo start
-   ```
+## 🌱 Our Development Garden
 
-   npx expo start --tunnel
+This is where we plant our code seeds and watch them grow into beautiful features. While our garden is private, it's filled with the creativity and hard work of each one of you.
 
-In the output, you'll find options to open the app in a
+### 🍃 Tech Stack
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **Expo**: Our sturdy tree trunk, providing a robust framework for our React Native app
+- **React Native**: The branches that extend our app to both iOS and Android
+- **Supabase**: The roots of our app, providing a powerful and flexible backend
+- **React Query**: The leaves that efficiently manage and synchronize our data
+- **NativeWind**: The blossoms that make our app beautiful with utility-first CSS
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🌻 Getting Started
 
-## Get a fresh project
+1. Clone this repository (you already know the secret handshake 😉)
+2. Run `npm install` to gather all our magical ingredients
+3. Use `npx expo start -c` to bring our app to life
 
-When you're ready, run:
+For more detailed instructions, check out our [Development Guide](link-to-your-guide) 🚧.
 
-```bash
-npm run reset-project
-```
+## 🌸 Contributing
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Every contribution you make adds a new petal to our SkinTherapist flower. Whether it's squashing bugs 🐛, adding features 🌟, or improving our docs 📝, your work matters!
 
-## Learn more
+Check out our [Contribution Guidelines](link-to-guidelines) 🚧 to see how you can help our garden grow.
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🌿 Team
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+We're not just developers, we're skin-thusiasts!
 
-## Join the community
+- **[Kim Nguyen]** - UX/UI ☀️
+- **[Emanuel Wilches Brandt]** - Tech 🧙‍♂️
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Happy coding, and may your skin always glow as brightly as your contributions! ✨
