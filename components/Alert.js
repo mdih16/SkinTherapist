@@ -4,7 +4,14 @@ import Modal from "react-native-modal";
 import AntDesign from "@expo/vector-icons/AntDesign";
 const Alert = ({ isVisible, onClose }) => {
   return (
-    <Modal isVisible={isVisible} onBackdropPress={onClose}>
+    <Modal
+      isVisible={isVisible}
+      onBackdropPress={onClose}
+      animationIn={"pulse"}
+      backdropColor="#808080"
+      backdropOpacity={0.5}
+      onBackButtonPress={() => onClose()}
+    >
       <View style={styles.modalContent}>
         <TouchableOpacity style={styles.closeButton} onPress={onClose}>
           <AntDesign name="close" size={20} color="black" />
