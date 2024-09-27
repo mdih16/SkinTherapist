@@ -51,7 +51,7 @@ export default Profile = () => {
   const [activeSkinConditions, setActiveSkinConditions] = useState([]);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ backgroundColor: "white" }}>
       <Modal
         animationType="slide"
         visible={modalVisible}
@@ -90,7 +90,7 @@ export default Profile = () => {
             type="current-password"
           />
           <View className="absolute bottom-6 w-full mx-6">
-            <AuthButton label="Ändra lösenord" backgroundColor="#594359" />
+            <AuthButton label="Ändra lösenord" backgroundColor="primary" />
           </View>
         </KeyboardAvoidingView>
       </Modal>
@@ -105,7 +105,7 @@ export default Profile = () => {
           </Text>
         </View>
         <View className="flex w-full h-44 items-center my-12">
-          <View className="w-44 h-44 bg-slate-400 rounded-full" />
+          <View className="w-44 h-44 bg-secondary rounded-full" />
         </View>
         <View className="flex flex-col w-full">
           <Text className="font-roboto_medium text-xl text-[#6C757D]">
@@ -122,7 +122,7 @@ export default Profile = () => {
           <LineBreak />
           <TouchableOpacity
             onPress={() => setModalVisible(!modalVisible)}
-            className="flex w-1/2 h-9 bg-[#594359] items-center justify-center rounded-lg mb-2"
+            className="flex w-1/2 h-9 bg-primary items-center justify-center rounded-lg mb-2"
           >
             <Text className="font-roboto_medium text-xl text-white">
               Ändra lösenord

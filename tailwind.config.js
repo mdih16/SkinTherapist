@@ -5,6 +5,10 @@ module.exports = {
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
+      colors: {
+        primary: "#5B7F7E",
+        secondary: "#BED1CF",
+      },
       fontFamily: {
         sofia: ["Sofia_400Regular"],
         roboto_light_italic: ["Roboto_300Light_Italic"],

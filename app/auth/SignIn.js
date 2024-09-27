@@ -37,7 +37,7 @@ export default function Index() {
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ alignItems: "center" }}
         >
-          <Text className="mb-6 font-roboto_bold text-4xl color-[#594359]">
+          <Text className="mb-6 font-roboto_bold text-4xl">
             Välkommen tillbaka
           </Text>
           <View className="flex flex-col w-full gap-4">
@@ -57,7 +57,10 @@ export default function Index() {
               type="current-password"
             />
           </View>
-          <TouchableOpacity className="w-full mt-2 mr-6">
+          <TouchableOpacity
+            onPress={() => router.push("/auth/ForgotPassword")}
+            className="w-full mt-2 mr-6"
+          >
             <Text className="font-roboto_medium text-right text-xs text-black">
               Glömt lösenord?
             </Text>
@@ -65,7 +68,7 @@ export default function Index() {
           <View className="flex flex-col w-full items-center mt-14">
             <AuthButton
               label="Logga in"
-              backgroundColor="#594359"
+              backgroundColor="primary"
               onPress={async () => {
                 try {
                   await signIn(email, password);

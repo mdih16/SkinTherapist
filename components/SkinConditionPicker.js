@@ -17,7 +17,7 @@ const SkinConditionButton = ({ active, label }) => {
   return (
     <View
       className={`flex w-full h-10 items-center justify-center rounded-[30px] ${
-        active ? "bg-[#594359]" : "bg-white border-2 border-[#6C757D]"
+        active ? "bg-primary" : "bg-white border-2 border-[#6C757D]"
       }`}
     >
       <Text

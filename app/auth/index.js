@@ -18,27 +18,26 @@ export default Welcome = () => {
       />
       <View className="flex-1 flex flex-col w-full h-full px-6">
         <View className="flex flex-col items-center mt-6">
-          <Text className="font-roboto_bold text-center text-6xl text-[#594359] pt-12">
+          <Text className="font-roboto_bold text-center text-6xl text-primary pt-12">
             Puri<Text className="font-sofia">F</Text>ine
             {"\n"}
             <Text className="font-roboto_regular text-2xl text-black">
-              Din <Text className="text-[#594359]">hudvårdsresa</Text> börjar
-              här.
+              Din <Text className="text-primary">hudvårdsresa</Text> börjar här.
             </Text>
           </Text>
         </View>
         <View className="flex flex-col gap-2 mt-12">
           <AuthButton
+            label={"Skapa ett konto"}
+            backgroundColor={"primary"}
+            onPress={() => handleNavigation("/auth/Signup")}
+          />
+          <AuthButton
             label={"Logga in"}
-            backgroundColor={"#ffffff"}
+            backgroundColor={"white"}
             textColor={"#000000"}
             border={true}
             onPress={() => handleNavigation("/auth/SignIn")}
-          />
-          <AuthButton
-            label={"Skapa ett konto"}
-            backgroundColor={"#594359"}
-            onPress={() => handleNavigation("/auth/Signup")}
           />
         </View>
         <Text className="text-xs text-[#6C757D] text-center mt-6 px-3">

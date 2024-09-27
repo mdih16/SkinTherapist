@@ -56,7 +56,7 @@ const ProductNotFound = ({ showAlert }) => {
         Produkten är för närvarande inte tillgänglig.
       </Text>
       <TouchableOpacity onPress={showAlert}>
-        <Text className="font-roboto_bold text-base text-[#594359]">
+        <Text className="font-roboto_bold text-base text-primary">
           Meddela mig när produkten finns!
         </Text>
       </TouchableOpacity>

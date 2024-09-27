@@ -40,7 +40,7 @@ const SignupFieldTemplate = ({
         <View className="absolute bottom-6 w-full mx-6">
           <AuthButton
             label={buttonLabel}
-            backgroundColor="#594359"
+            backgroundColor="primary"
             onPress={nextStep}
           />
         </View>
@@ -72,7 +72,7 @@ const SignupSkinCondition = ({
         <View className="absolute bottom-6 w-full mx-6">
           <AuthButton
             label="Nästa"
-            backgroundColor="#594359"
+            backgroundColor="primary"
             onPress={nextStep}
           />
         </View>

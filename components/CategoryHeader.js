@@ -5,9 +5,7 @@ export default CategoryHeader = ({ categoryText, isFocused }) => {
     <View className="flex items-center justify-center">
       <Text
         className={`font-roboto_bold text-base ${
-          isFocused
-            ? "text-black border-b-2 border-[#594359]"
-            : "text-[#6C757D]"
+          isFocused ? "text-black border-b-2 border-primary" : "text-[#6C757D]"
         }`}
       >
         {categoryText}

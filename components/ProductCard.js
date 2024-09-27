@@ -17,7 +17,7 @@ export default ProductCard = ({
       }}
       className="flex flex-row w-full h-20 gap-6"
     >
-      <View className="w-20 h-20 bg-[#F2EEF2]" />
+      <View className="w-20 h-20 bg-secondary" />
       <View className="flex-1 flex flex-col">
         <Text
           numberOfLines={1}

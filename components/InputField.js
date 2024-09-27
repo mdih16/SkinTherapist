@@ -17,7 +17,7 @@ const InputField = ({
   return (
     <Pressable
       className={`flex flex-row items-center w-full h-16 bg-white rounded-[${cornerRadius}px] border border-solid ${
-        isFocused ? "border-2 border-[#594359]" : ""
+        isFocused ? "border-2 border-primary" : ""
       }`}
       onPress={() => {
         textInputRef.current.focus();

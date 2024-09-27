@@ -77,8 +77,8 @@ export default function Product() {
   }, [product_id]);
 
   return (
-    <SafeAreaView>
-      <ScrollView className="px-6">
+    <SafeAreaView style={{ backgroundColor: "white" }}>
+      <ScrollView className="h-full px-6 bg-white">
         <BackButton
           iconName="close-outline"
           onPress={() => {
@@ -105,7 +105,7 @@ export default function Product() {
           </View>
         )}
         {!loading && ingredients && (
-          <View>
+          <View className="bg-white">
             <IngredientBar colorRatio={generateRatio()} />
             <View className="my-6">
               {ingredients.map((ingredient) => (

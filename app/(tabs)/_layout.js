@@ -7,8 +7,9 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "#594359",
+        tabBarActiveTintColor: "#5B7F7E",
         tabBarHideOnKeyboard: true,
+        tabBarStyle: { height: 64 },
       }}
       backBehavior="history"
     >
@@ -17,16 +18,16 @@ export default function TabLayout() {
         options={{
           title: "Hem",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="home" size={24} color={color} />
+            <Ionicons name="home" size={32} color={color} />
           ),
         }}
       />
       <Tabs.Screen
         name="Scanner"
         options={{
-          title: "Skanna här",
+          title: "Skanna",
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="line-scan" size={24} color={color} />
+            <MaterialCommunityIcons name="line-scan" size={32} color={color} />
           ),
         }}
       />
@@ -37,7 +38,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="face-woman-profile"
-              size={24}
+              size={32}
               color={color}
             />
           ),

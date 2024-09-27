@@ -97,30 +97,33 @@ export default function Home() {
   return (
     <SafeAreaView style={{ backgroundColor: "white" }}>
       <StatusBar style="dark" translucent />
-      <FlatList
-        data={categoryItems}
-        ListHeaderComponent={HomeHeader}
-        contentContainerStyle={{
-          display: "flex",
-          flexDirection: "column",
-          marginHorizontal: 24,
-          gap: 16,
-        }}
-        keyboardShouldPersistTaps="handled"
-        onEndReached={() => {
-          if (hasMore) {
-            getProducts();
-          }
-        }}
-        onEndReachedThreshold={0.3}
-        renderItem={({ item }) => (
-          <ProductCard
-            productBrand={item.brandname}
-            productName={item.productname}
-            productId={item.product_id}
-          />
-        )}
-      />
+      <View className="h-full">
+        <FlatList
+          data={categoryItems}
+          ListHeaderComponent={HomeHeader}
+          contentContainerStyle={{
+            display: "flex",
+            flexDirection: "column",
+            paddingHorizontal: 24,
+            paddingBottom: 16,
+            gap: 16,
+          }}
+          keyboardShouldPersistTaps="handled"
+          onEndReached={() => {
+            if (hasMore) {
+              getProducts();
+            }
+          }}
+          onEndReachedThreshold={0.3}
+          renderItem={({ item }) => (
+            <ProductCard
+              productBrand={item.brandname}
+              productName={item.productname}
+              productId={item.product_id}
+            />
+          )}
+        />
+      </View>
     </SafeAreaView>
   );
 }

@@ -7,7 +7,7 @@ const BackButton = ({ iconName, backgroundColor, onPress }) => {
     <TouchableOpacity onPress={onPress} className="h-12 w-12">
       <View
         className={`flex items-center justify-center w-full h-full rounded-full ${
-          !backgroundColor ? "bg-[#594359]/10" : backgroundColor
+          !backgroundColor ? "bg-secondary/30" : backgroundColor
         }`}
       >
         <Ionicons

@@ -25,7 +25,7 @@ export default function lösenord() {
         <View
           className={`flex h-[60px] w-[60px] items-center justify-center mt-[80px] rounded-[10px] bg-[#F2EEF2]`}
         >
-          <AntDesign name="checkcircleo" size={42} color="#594359" />
+          <AntDesign name="checkcircleo" size={42} color="#5B7F7E" />
         </View>
         <Text className=" font-roboto_medium text-4xl text-[#0000000] mt-[15px] pt-[5px]">
           Lösenord återställt!{" "}
@@ -38,7 +38,7 @@ export default function lösenord() {
         </Text>
 
         <View className=" w-full mx-6 mt-[50px]">
-          <AuthButton label="Logga in" backgroundColor="#594359" />
+          <AuthButton label="Logga in" backgroundColor="primary" />
         </View>
       </View>
     </SafeAreaView>

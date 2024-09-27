@@ -51,9 +51,9 @@ export default Search = ({ placeHolder }) => {
   }, [searchText]);
 
   return (
-    <SafeAreaView style={{ backgroundColor: "#F2EEF2" }}>
+    <SafeAreaView style={{ backgroundColor: "#BED1CF" }}>
       <View className="w-full h-full bg-white">
-        <View className="flex flex-row bg-[#F2EEF2]">
+        <View className="flex flex-row bg-secondary">
           <Pressable
             onPress={() => router.back()}
             className="flex items-center justify-center h-16 w-16"
@@ -74,12 +74,12 @@ export default Search = ({ placeHolder }) => {
               searchText === ""
                 ? "font-roboto_light_italic"
                 : "font-roboto_regular"
-            } flex-1 h-16 text-base text-black bg-[#F2EEF2]`}
+            } flex-1 h-16 text-base text-black bg-secondary`}
             ref={inputRef}
           />
           <Pressable
             onPress={() => setSearchText("")}
-            className="flex items-center justify-center h-16 w-16 bg-[#F2EEF2]"
+            className="flex items-center justify-center h-16 w-16 bg-secondary"
           >
             <Ionicons
               name={searchText ? "close-circle-outline" : "search-outline"}
@@ -98,7 +98,7 @@ export default Search = ({ placeHolder }) => {
               Finns inte den produkt du söker efter?
             </Text>
             <TouchableOpacity onPress={() => setIsAlertVisible(true)}>
-              <Text className="font-roboto_bold text-base text-[#594359]">
+              <Text className="font-roboto_bold text-base text-primary">
                 Klicka här så skickar vi ett e-mail till dig när den är
                 tillgänglig.
               </Text>
