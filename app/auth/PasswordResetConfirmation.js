@@ -13,7 +13,7 @@ import AuthButton from "../../components/AuthButton";
 import { useState, useRef } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
-export default function lösenord() {
+export default function PasswordResetonfirmation() {
   const [email, setEmail] = useState("");
 
   return (

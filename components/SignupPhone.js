@@ -15,7 +15,7 @@ import AuthButton from "../../components/AuthButton";
 
 import { useState, useRef } from "react";
 
-export default function Sign() {
+export default function SignupPhone() {
   const [number, onChangeNumber] = useState("");
 
   return (

@@ -1,7 +1,7 @@
 import { TextInput, Pressable, TouchableOpacity, Platform } from "react-native";
 import { useState } from "react";
 
-const ShortLine = ({ placeHolder, type, onChangeText }) => {
+const InputLineShort = ({ placeHolder, type, onChangeText }) => {
   const [number, setNumber] = useState("");
   const handleNumberChange = (text) => {
     setNumber(text);
@@ -25,4 +25,4 @@ const ShortLine = ({ placeHolder, type, onChangeText }) => {
   );
 };
 
-export default ShortLine;
+export default InputLineShort;
