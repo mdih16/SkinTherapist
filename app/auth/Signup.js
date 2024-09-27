@@ -3,6 +3,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
 import { useState } from "react";
 import { signUp } from "../../services/supabase/auth";
+import {
+  isValidEmail,
+  isValidFirstName,
+  isValidPassword,
+} from "../../utils/regex";
 import BackButton from "../../components/BackButton";
 import InputLine0 from "../../components/InputLine0";
 import AuthButton from "../../components/AuthButton";
@@ -19,7 +24,15 @@ const SignupFieldTemplate = ({
   nextStep,
   text,
   setText,
+  regexFn,
 }) => {
+  const [isValid, setIsValid] = useState(false);
+
+  const handelOnChangeText = (text) => {
+    setText(text);
+    setIsValid(regexFn(text));
+  };
+
   return (
     <SafeAreaView style={{ backgroundColor: "white" }}>
       <KeyboardAvoidingView className="w-full h-full px-6 bg-white">
@@ -32,7 +45,7 @@ const SignupFieldTemplate = ({
         </Text>
         <InputLine0
           text={text}
-          onChangeText={setText}
+          onChangeText={handelOnChangeText}
           type={type ? type : null}
           placeHolder={placeHolder}
           sensitive={sensitive}
@@ -40,8 +53,9 @@ const SignupFieldTemplate = ({
         <View className="absolute bottom-6 w-full mx-6">
           <AuthButton
             label={buttonLabel}
-            backgroundColor="primary"
+            backgroundColor={"primary"}
             onPress={nextStep}
+            disabled={!isValid}
           />
         </View>
       </KeyboardAvoidingView>
@@ -115,6 +129,7 @@ export default Signup = () => {
           nextStep={nextStep}
           text={email}
           setText={setEmail}
+          regexFn={isValidEmail}
         />
       );
     case 2:
@@ -127,6 +142,7 @@ export default Signup = () => {
           nextStep={nextStep}
           text={name}
           setText={setName}
+          regexFn={isValidFirstName}
         />
       );
     case 3:
@@ -155,6 +171,7 @@ export default Signup = () => {
           }}
           text={password}
           setText={setPassword}
+          regexFn={isValidPassword}
         />
       );
   }
