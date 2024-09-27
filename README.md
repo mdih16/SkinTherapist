@@ -43,7 +43,7 @@ Check out our [Contribution Guidelines](link-to-guidelines) 🚧 to see how you 
 
 We're not just developers, we're skin-thusiasts!
 
-- **[Kim Nguyen]** - UX/UI ☀️
-- **[Emanuel Wilches Brandt]** - Tech 🧙‍♂️
+- **Kim Nguyen** - UX/UI ☀️
+- **Emanuel Wilches Brandt** - Tech 🧙‍♂️
 
 Happy coding, and may your skin always glow as brightly as your contributions! ✨
