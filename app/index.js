@@ -10,9 +10,9 @@ export default Index = () => {
   }
 
   if (session) {
-    router.push("/Home");
+    router.replace("/Home");
   } else {
-    router.push("/auth");
+    router.replace("/auth");
   }
 
   return <></>;

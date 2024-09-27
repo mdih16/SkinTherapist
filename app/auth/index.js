@@ -1,6 +1,7 @@
 import { View, Text, Image } from "react-native";
 import { useRouter } from "expo-router";
 import AuthButton from "../../components/AuthButton";
+import Logo from "../../assets/images/logo.svg";
 
 export default Welcome = () => {
   const router = useRouter();
@@ -18,15 +19,12 @@ export default Welcome = () => {
       />
       <View className="flex-1 flex flex-col w-full h-full px-6">
         <View className="flex flex-col items-center mt-6">
-          <Text className="font-roboto_bold text-center text-6xl text-primary pt-12">
-            Puri<Text className="font-sofia">F</Text>ine
-            {"\n"}
-            <Text className="font-roboto_regular text-2xl text-black">
-              Din <Text className="text-primary">hudvårdsresa</Text> börjar här.
-            </Text>
+          <Logo />
+          <Text className="font-roboto_regular text-2xl text-black -mt-6">
+            Din <Text className="text-primary">hudvårdsresa</Text> börjar här.
           </Text>
         </View>
-        <View className="flex flex-col gap-2 mt-12">
+        <View className="flex flex-col gap-3 mt-20">
           <AuthButton
             label={"Skapa ett konto"}
             backgroundColor={"primary"}

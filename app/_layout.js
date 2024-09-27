@@ -37,7 +37,6 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      <StatusBar style="dark" translucent />
       <AuthProvider>
         <Stack options={{ headerShown: false }}>
           <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -45,6 +44,7 @@ export default function RootLayout() {
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
       </AuthProvider>
+      <StatusBar style="dark" translucent />
     </SafeAreaProvider>
   );
 }
