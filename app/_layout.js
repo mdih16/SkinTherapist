@@ -7,7 +7,6 @@ import {
   Roboto_500Medium,
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
-import { Sofia_400Regular } from "@expo-google-fonts/sofia";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { Stack } from "expo-router";
@@ -22,7 +21,6 @@ export default function RootLayout() {
     Roboto_400Regular,
     Roboto_500Medium,
     Roboto_700Bold,
-    Sofia_400Regular,
   });
 
   useEffect(() => {

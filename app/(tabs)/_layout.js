@@ -1,8 +1,20 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-import { Tabs } from "expo-router";
+import { Tabs, router } from "expo-router";
+import { useAuth } from "../../services/supabase/AuthProvider";
+import { useEffect } from "react";
 
 export default function TabLayout() {
+  const { session } = useAuth();
+
+  useEffect(() => {
+    if (session) {
+      router.replace("/Home");
+    } else {
+      router.replace("/auth");
+    }
+  }, [session]);
+
   return (
     <Tabs
       screenOptions={{
