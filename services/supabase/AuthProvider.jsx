@@ -6,7 +6,9 @@ import {
   useCallback,
 } from "react";
 import supabase from "./supabaseClient";
+
 const AuthContext = createContext({ session: null, loading: true, user: null });
+
 export default function AuthProvider({ children }) {
   const [session, setSession] = useState(null);
   const [user, setUser] = useState(null);
@@ -25,54 +27,54 @@ export default function AuthProvider({ children }) {
       return null;
     }
   }, []);
-  const updateUserState = useCallback(
-    async (session) => {
+
+  useEffect(() => {
+    const setupAuth = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      setSession(session);
+
+      if (session?.user) {
+        const userData = await fetchUser(session.user.id);
+        setUser(userData);
+      }
+
+      setLoading(false);
+    };
+
+    setupAuth();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (event, session) => {
+      setSession(session);
+
       if (session?.user) {
         const userData = await fetchUser(session.user.id);
         setUser(userData);
       } else {
         setUser(null);
       }
+
       setLoading(false);
-    },
-    [fetchUser]
+    });
+
+    return () => subscription.unsubscribe();
+  }, [fetchUser]);
+
+  return (
+    <AuthContext.Provider value={{ session, user, loading }}>
+      {children}
+    </AuthContext.Provider>
   );
-  useEffect(() => {
-    let mounted = true;
-    async function initializeAuth() {
-      try {
-        const {
-          data: { session },
-        } = await supabase.auth.getSession();
-        if (mounted) {
-          setSession(session);
-          await updateUserState(session);
-        }
-      } catch (error) {
-        console.error("Error in initializeAuth:", error);
-        if (mounted) setLoading(false);
-      }
-    }
-    initializeAuth();
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        if (mounted) {
-          setSession(session);
-          await updateUserState(session);
-        }
-      }
-    );
-    return () => {
-      mounted = false;
-      if (authListener) authListener.subscription.unsubscribe();
-    };
-  }, [updateUserState]);
-  const value = {
-    session,
-    loading,
-    user,
-    refetchUser: () => updateUserState(session),
-  };
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
-export const useAuth = () => useContext(AuthContext);
+
+// Custom hook to use the auth context
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
