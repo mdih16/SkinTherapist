@@ -1,7 +1,6 @@
 # 🌿 Welcome to SkinTherapist 🌿
 
-Hello, lovely team! 👋 Welcome to the cozy corner of our SkinTherapist app. Grab a cup of tea, settle in, and let's chat about this exciting project we're nurturing together.
-
+This project, developed in collaboration with my friend during our free time, focuses on promoting informed skincare choices. I contributed to designing the app's interface and worked on the frontend, while my friend worked on both the frontend and backend. The project not only honed our technical skills but also deepened our understanding of user-centric app development.
 ## 🌟 What's SkinTherapist All About?
 
 SkinTherapist is our little magic wand for skincare enthusiasts. It's an app that lets users scan skincare products and receive personalized information based on their unique skin conditions. Think of it as a knowledgeable friend who's always in your pocket, ready to give you the best skincare advice!
