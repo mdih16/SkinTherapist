@@ -4,7 +4,7 @@
 
 SkinTherapist is our little magic wand for skincare enthusiasts. It's an app that lets users scan skincare products and receive personalized information based on their unique skin conditions. Think of it as a knowledgeable friend who's always in your pocket, ready to give you the best skincare advice!
 
-<img src="https://github.com/user-attachments/assets/af462adc-4378-4653-823b-58d1dc6f42e7" width="200">
+<img src="https://github.com/user-attachments/assets/30a627d2-e44a-494a-a8eb-62a787ee75c4" width="200">
 <img src="https://github.com/user-attachments/assets/09adb941-dcc9-4446-ad86-022d9650e426" width="200">
 <img src="https://github.com/user-attachments/assets/65b7b839-6ee0-4e6e-b539-0a435086f7ca" width="200">
 
